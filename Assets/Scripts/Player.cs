@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float speed = 5.0f;
     public int lives = 3;
     public Image[] livesUI;
+    public GameObject explosionPrefab;
 
     private bool _laserActive;
 
@@ -53,6 +54,8 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("invader") ||
             other.gameObject.layer == LayerMask.NameToLayer("missile"))
         {
+            Destroy(other.gameObject);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             lives -= 1;
             for (int i = 0; i < livesUI.Length; i++)
             {

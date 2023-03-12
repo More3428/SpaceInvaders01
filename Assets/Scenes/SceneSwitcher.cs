@@ -8,17 +8,30 @@ using UnityEngine.SceneManagement;
 public class NewBehaviourScript : MonoBehaviour
 {
    public string gameSceneName;
+   private float delayBeforeLoading = 15f; 
+   private float timeElapsed; 
+   
    
 
    private void Start()
    {
       GameObject.DontDestroyOnLoad(this.gameObject);
    }
-
+   
    public void LoadGameScene()
    {
       
       StartCoroutine(LoadAndSetup()); 
+   }
+
+   public void LoadCreditScene()
+   {
+      SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+   }
+
+   public void LoadMenuScene()
+   {
+      SceneManager.LoadScene("Menu", LoadSceneMode.Single); 
    }
 
    IEnumerator LoadAndSetup()

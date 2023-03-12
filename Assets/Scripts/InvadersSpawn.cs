@@ -113,6 +113,7 @@ public class InvadersSpawn : MonoBehaviour
       //if all invaders are killed this will reset the game. 
       if (this.invadersKilled >= this.totalInvaders)
       {
+         //Here we want to load credit scene so change this
          SceneManager.LoadScene(SceneManager.GetActiveScene().name);
       }
    }

@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public Vector3 direction;
     public float speed;
     public System.Action destroyed;
+    public GameObject explosionPrefab; 
 
   
 
@@ -26,5 +27,16 @@ public class Projectile : MonoBehaviour
         }
         
         Destroy(this.gameObject);
+        if (other.gameObject.layer == LayerMask.NameToLayer("invader"))
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity); 
+           Destroy(other.gameObject);
+           Destroy(gameObject);
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("boundary"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

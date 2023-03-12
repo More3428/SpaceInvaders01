@@ -173,3 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 1, z: 0}
   speed: 30
+  explosionPrefab: {fileID: 2252924733842240015, guid: 4b6931fb9fbbb5b44bf5a3273cf20e7c, type: 3}
