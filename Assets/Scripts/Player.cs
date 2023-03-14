@@ -14,7 +14,10 @@ public class Player : MonoBehaviour
     public GameObject explosionPrefab;
 
     private bool _laserActive;
+    public AudioSource playershootingSound;
+    public AudioSource playerExploding;
 
+    
 
     private void Update()
     {
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
+            
             Shoot();
         }
     }
@@ -38,6 +42,7 @@ public class Player : MonoBehaviour
         //to prevent player from rapid firing unless laser is destroyed
         if (!_laserActive)
         {
+            playershootingSound.Play();
             Projectile projectile = Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
             projectile.destroyed += LaserDestroyed;
             _laserActive = true;
@@ -54,8 +59,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("invader") ||
             other.gameObject.layer == LayerMask.NameToLayer("missile"))
         {
+            
             Destroy(other.gameObject);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            playerExploding.Play();
             lives -= 1;
             for (int i = 0; i < livesUI.Length; i++)
             {
@@ -71,7 +78,7 @@ public class Player : MonoBehaviour
         }
         if (lives <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("Credits", LoadSceneMode.Single);
         }
         
             

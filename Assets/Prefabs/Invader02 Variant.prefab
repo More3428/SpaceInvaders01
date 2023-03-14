@@ -13,6 +13,10 @@ PrefabInstance:
       value: Invader02 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2460528198570112235, guid: 06185a7456a50504c8893a73ec9e3bd5, type: 3}
+      propertyPath: enemyExplosion
+      value: 
+      objectReference: {fileID: 8102297205899601479}
+    - target: {fileID: 2460528198570112235, guid: 06185a7456a50504c8893a73ec9e3bd5, type: 3}
       propertyPath: animationSprites.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: faa33742ca0e31347b439b55fb7cecfd, type: 3}
@@ -68,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: faa33742ca0e31347b439b55fb7cecfd, type: 3}
+    - target: {fileID: 6327432236960339813, guid: 06185a7456a50504c8893a73ec9e3bd5, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4382c5bc7de16024c9a1c42c41107a41, type: 3}
+    - target: {fileID: 6327432236960339813, guid: 06185a7456a50504c8893a73ec9e3bd5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6352016045605867562, guid: 06185a7456a50504c8893a73ec9e3bd5, type: 3}
       propertyPath: m_Size.x
       value: 1.375
@@ -81,3 +93,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06185a7456a50504c8893a73ec9e3bd5, type: 3}
+--- !u!82 &8102297205899601479 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2176631478390064275, guid: 06185a7456a50504c8893a73ec9e3bd5, type: 3}
+  m_PrefabInstance: {fileID: 7945993158667969236}
+  m_PrefabAsset: {fileID: 0}

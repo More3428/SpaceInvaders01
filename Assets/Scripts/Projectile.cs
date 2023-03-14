@@ -9,9 +9,10 @@ public class Projectile : MonoBehaviour
     public Vector3 direction;
     public float speed;
     public System.Action destroyed;
-    public GameObject explosionPrefab; 
+    public GameObject explosionPrefab;
+    
 
-  
+
 
     private void Update()
     {
@@ -23,14 +24,18 @@ public class Projectile : MonoBehaviour
         //an event
         if (this.destroyed != null)
         {
+            
             this.destroyed.Invoke();
         }
         
         Destroy(this.gameObject);
         if (other.gameObject.layer == LayerMask.NameToLayer("invader"))
         {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity); 
-           Destroy(other.gameObject);
+            
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            
+            Destroy(other.gameObject);
+            
            Destroy(gameObject);
         }
 

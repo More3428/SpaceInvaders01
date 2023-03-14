@@ -19,6 +19,8 @@ public class InvadersSpawn : MonoBehaviour
 
    
    private Vector3 _direction = Vector2.right;
+   AudioSource missileSound;
+   
    
    //calculate amount of invaders killed
    public int invadersKilled { get; private set; }
@@ -50,6 +52,7 @@ public class InvadersSpawn : MonoBehaviour
    private void Start()
    {
       InvokeRepeating(nameof(MissileAttack), this.missileRate, this.missileRate );
+      missileSound = GetComponent<AudioSource>(); 
    }
 
    private void Update()
@@ -67,6 +70,7 @@ public class InvadersSpawn : MonoBehaviour
          //first check if invader is not disabled
          if (!invader.gameObject.activeInHierarchy)
          {
+            
             continue;
          }
          //check the edge of the screen if hits edge call advance row
@@ -95,6 +99,7 @@ public class InvadersSpawn : MonoBehaviour
       {
          if (!invader.gameObject.activeInHierarchy)
          {
+            
             continue;
          }
          //check if missile fires one out of total will spawn
@@ -102,6 +107,7 @@ public class InvadersSpawn : MonoBehaviour
          //when one spawns we break from the loop
          if (Random.value < (1.0f / (float)this.enemiesAlive))
          {
+            missileSound.Play();
             Instantiate(this.missilePrefab, invader.position, Quaternion.identity);
             break;
          }
@@ -114,7 +120,7 @@ public class InvadersSpawn : MonoBehaviour
       if (this.invadersKilled >= this.totalInvaders)
       {
          //Here we want to load credit scene so change this
-         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+         SceneManager.LoadScene("Credits", LoadSceneMode.Single);
       }
    }
 }

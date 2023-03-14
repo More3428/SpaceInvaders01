@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8069137476893896364, guid: 9b6b47bf5aafd524384126d497a379aa, type: 3}
+      propertyPath: enemyExplosion
+      value: 
+      objectReference: {fileID: 2176631478390064275}
+    - target: {fileID: -8069137476893896364, guid: 9b6b47bf5aafd524384126d497a379aa, type: 3}
       propertyPath: animationSprites.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -109,3 +113,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b6b47bf5aafd524384126d497a379aa, type: 3}
+--- !u!82 &2176631478390064275 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3176680028271763756, guid: 9b6b47bf5aafd524384126d497a379aa, type: 3}
+  m_PrefabInstance: {fileID: 3612211719703160255}
+  m_PrefabAsset: {fileID: 0}

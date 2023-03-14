@@ -13,6 +13,8 @@ public class Invader : MonoBehaviour
 
    public System.Action killed;
    private pointManager _pointManager;
+   public AudioSource enemyExplosion;
+   
 
    private void Awake()
    {     
@@ -44,8 +46,10 @@ public class Invader : MonoBehaviour
    {
       if (other.gameObject.layer == LayerMask.NameToLayer("laser"))
       {
+         
          _pointManager.UpdateScore(50);
          this.killed.Invoke();
+         enemyExplosion.Play();
          this.gameObject.SetActive(false);
       }
    }
